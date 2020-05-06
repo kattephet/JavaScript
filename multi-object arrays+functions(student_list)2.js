@@ -55,7 +55,6 @@ while (true) {
 
   search = prompt('Type in student name you want to look for.(Type in "quit" if you want to End).');
   search = search.toLowerCase();
-  console.log(search);
 
 if (search === 'quit' || search === 'null' ) {
   break;

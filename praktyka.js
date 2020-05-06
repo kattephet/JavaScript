@@ -66,7 +66,7 @@ while(true) {
   search = search.toLowerCase();
   html = "<ol>";
 
-  if ( search === "quit" || search === 'null') {
+  if ( search === "quit") {
     print('<h1>End</h2>.');
     break;
   }
