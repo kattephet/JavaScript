@@ -7,7 +7,7 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 450px;
   justify-content: space-between;
 }
 
@@ -41,14 +41,21 @@ li:last-child {
   border: 3px solid blue;
   border-radius: 5px;
   background: #8eb5f5;
+  font-size: 18px;
 }
 
 .scores {
   border: 2px solid red;
   border-radius: 5px;
   background: pink;
+  width: 200px;
+  position: absolute;
+  right: 150px;
+  top: 150px;
+  text-align: center;
 }
 
 .motivator {
-  font-size: 50px;
+  font-size: 60px;
+  text-align: center;
 }
