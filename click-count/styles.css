@@ -1,14 +1,15 @@
 html {
   min-height: 100vh;
   display: flex;
+
 }
 
 body {
   margin: auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 550px;
+  justify-content: space-between;
 }
 
 ul {
@@ -17,25 +18,38 @@ ul {
 }
 
 h2 {
-  margin: 10px 10px;
+  margin: 10px 20px;
 }
 
 li {
   list-style-type: none;
   margin: 2px;
+  border: 1px solid black;
+  background: white;
 }
 
 li:last-child {
   margin-bottom: 15px;
 }
 
+.second-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .resetCounter {
-  border: 1px solid blue;
+  border: 3px solid blue;
   border-radius: 5px;
+  background: #8eb5f5;
 }
 
 .scores {
   border: 2px solid red;
   border-radius: 5px;
-  background-color: pink;
+  background: pink;
+}
+
+.motivator {
+  font-size: 50px;
 }
