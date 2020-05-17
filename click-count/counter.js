@@ -36,19 +36,35 @@ function motivatorTitle(clicksAmount) {
   }
 }
 
+function addRemoveButton(li) {
+  let remove = document.createElement("button");
+  remove.className = "remove";
+  remove.textContent = "Remove";
+  li.appendChild(remove);
+}
+
 clickArea.addEventListener("click", () => {
   window.clearTimeout(timeoutID);
   counter.textContent = `Click nr: ${clicks}`;
   clicks += 1;
   motivatorTitle(clicks);
-  timeoutID = window.setTimeout(window.alert, 3*1000, 'Are you done? COME ON!');
+  // timeoutID = window.setTimeout(window.alert, 3*1000, 'Are you done? COME ON!'); // temporary turned of so it's easier to work on code.
 });
 
 resetButton.addEventListener("click", () => {
   let li = document.createElement("li");
-  li.textContent = `${listPosition}: ${clicks - 1} clicks - ${comment(clicks)}`;
+  li.innerHTML = `${listPosition}: ${clicks - 1} clicks - ${comment(clicks)}`;
   scores.appendChild(li);
+  addRemoveButton(li);
   clicks = 0;
   motivator.style.color = "black";
   listPosition += 1;
+});
+
+scores.addEventListener("click", (event) => {
+  if (event.target.className == "remove") {
+    let li = event.target.parentNode;
+    let ul = li.parentNode;
+    ul.removeChild(li);
+  }
 });
