@@ -18,13 +18,20 @@ ul {
 
 h2 {
   margin: 10px 20px;
+  font-size: 40px;
 }
 
 li {
+  font-size: 20px;
   list-style-type: none;
   margin: 2px;
   border: 1px solid black;
   background: white;
+  color: white;
+  -webkit-text-stroke-width: 0.25px;
+  -webkit-text-stroke-color: black;
+  display: flex;
+  justify-content: space-around;
 }
 
 li:last-child {
@@ -33,9 +40,8 @@ li:last-child {
 
 ul button {
   border: none;
-  background: white;
-  padding-right: 0;
-  padding-left: 12px;
+  background: transparent ;
+  padding: 0;
 }
 
 .second-content {
@@ -51,14 +57,14 @@ ul button {
   font-size: 18px;
 }
 
-.scores {
+.scores-container {
   border: 2px solid red;
   border-radius: 5px;
   background: pink;
-  width: 200px;
+  width: 250px;
   position: absolute;
-  right: 150px;
-  top: 150px;
+  right: 80px;
+  top: 130px;
   text-align: center;
 }
 
