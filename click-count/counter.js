@@ -5,7 +5,6 @@ const scores = document.querySelector(".scores");
 const motivator = document.querySelector(".motivator");
 let timeoutID;
 let clicks = 1;
-let listPosition = 1;
 let listElement = scores.children;
 
 let colors = [
@@ -85,6 +84,10 @@ function backgroundColors() {
   }
 }
 
+function addPosition(list) {
+
+}
+
 clickArea.addEventListener("click", () => {
   window.clearTimeout(timeoutID);
   counter.textContent = `Click nr: ${clicks}`;
@@ -95,7 +98,7 @@ clickArea.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
   let li = document.createElement("li");
-  li.innerHTML = `${listPosition}: ${clicks - 1} clicks - ${comment(clicks)}`;
+  li.innerHTML = `${clicks - 1} clicks - ${comment(clicks)}`;
   li.className = `${clicks - 1}`;
   scores.appendChild(li);
   addRemoveButton(li);
@@ -103,7 +106,6 @@ resetButton.addEventListener("click", () => {
   removeOverTen();
   clicks = 0;
   motivator.style.color = "black";
-  listPosition += 1;
   backgroundColors();
 });
 
