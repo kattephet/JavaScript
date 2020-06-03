@@ -20,31 +20,29 @@ let fulList;
 
 // functions
 
+function list(name, callback) {
+  let position = `<li style="font-size:22px">${callback(
+    name
+  )}</li>`;
+  return position;
+}
+
+function printInformation(name, track, achievments, points) {
+  let print = `<h2>Student: ${name}</h2>`;
+  print += `<p>Track: ${track}</p>`;
+  print += `<p>Achievments: ${achievments}</p>`;
+  print += `<p>Points: ${points}</p>`;
+  return print;
+}
+
 function print(message) {
   var outputDiv = document.getElementById("output");
   outputDiv.innerHTML = message;
 }
 
-function list(number) {
-  let position = `<li style="font-size:22px">${capitalizeFirstLetter(
-    students[number].name
-  )}</li>`;
-  return position;
-}
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-function printInformation(number) {
-  let print = `<h2>Student: ${students[number].name}</h2>`;
-  print += `<p>Track: ${students[number].track}</p>`;
-  print += `<p>Achievments: ${students[number].achievments}</p>`;
-  print += `<p>Points: ${students[number].points}</p>`;
-  return print;
-}
-
-// loops
 
 while (true) {
   search = prompt(message);
@@ -57,14 +55,14 @@ while (true) {
     break;
   }
 
-  for (let i = 0; i < students.length; i += 1) {
+  students.forEach(item => {
     if (search === "list") {
-      fulList += `${list(i)}`;
-      html = fulList;
-    } else if (search === students[i].name.toLowerCase()) {
-      html += `${printInformation(i)}`;
+          fulList += `${list(item.name, capitalizeFirstLetter)}`;
+          html = fulList;
+    } else if (search === item.name.toLowerCase()) {
+      html += `${printInformation(item.name, item.track, item.achievments, item.points)}`;
     }
-  }
+  });
 
   if (html === " ") {
     html = `<h2>Student ${capitalizeFirstLetter(
@@ -74,3 +72,29 @@ while (true) {
 
   print(html);
 }
+
+// Old version
+
+// function printInformation(number) {
+//   let print = `<h2>Student: ${students[number].name}</h2>`;
+//   print += `<p>Track: ${students[number].track}</p>`;
+//   print += `<p>Achievments: ${students[number].achievments}</p>`;
+//   print += `<p>Points: ${students[number].points}</p>`;
+//   return print;
+// }
+
+// function list(number) {
+//   let position = `<li style="font-size:22px">${capitalizeFirstLetter(
+//     students[number].name
+//   )}</li>`;
+//   return position;
+// }
+
+// for (let i = 0; i < students.length; i += 1) {
+//   if (search === "list") {
+//     fulList += `${list(i)}`;
+//     html = fulList;
+//   } else if (search === students[i].name.toLowerCase()) {
+//     html += `${printInformation(i)}`;
+//   }
+// }
