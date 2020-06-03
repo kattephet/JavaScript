@@ -21,9 +21,7 @@ let fulList;
 // functions
 
 function list(name, callback) {
-  let position = `<li style="font-size:22px">${callback(
-    name
-  )}</li>`;
+  let position = `<li style="font-size:22px">${callback(name)}</li>`;
   return position;
 }
 
@@ -50,17 +48,22 @@ while (true) {
   fulList = "<h2>List</h2><ol>";
   html = " ";
 
-  if (search === "quit" || search === 'null') {
+  if (search === "quit" || search === "null") {
     print("<h1>End</h2>.");
     break;
   }
 
-  students.forEach(item => {
+  students.forEach((item) => {
     if (search === "list") {
-          fulList += `${list(item.name, capitalizeFirstLetter)}`;
-          html = fulList;
+      fulList += `${list(item.name, capitalizeFirstLetter)}`;
+      html = fulList;
     } else if (search === item.name.toLowerCase()) {
-      html += `${printInformation(item.name, item.track, item.achievments, item.points)}`;
+      html += `${printInformation(
+        item.name,
+        item.track,
+        item.achievments,
+        item.points
+      )}`;
     }
   });
 

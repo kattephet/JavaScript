@@ -30,7 +30,7 @@ while (true) {
     break;
   }
 
-  students.forEach(item => {
+  students.forEach((item) => {
     let studentName = item.name;
     if (studentName === search) {
       html += `<h2>Student: ${capitalizeFirstLetter(item.name)}</h2>`;
