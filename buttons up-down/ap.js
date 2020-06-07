@@ -37,12 +37,13 @@ function firstLastRemove() {
   let up = first.querySelector(".up");
   let down = last.querySelector(".down");
   if (up) {
-  first.removeChild(up);
+    first.removeChild(up);
+  }
+  if (down) {
+    last.removeChild(down);
+  }
 }
-if (down) {
-  last.removeChild(down);
-}
-}
+
 
 function firstLastBGColor() {
   let first = ulList.firstElementChild;
