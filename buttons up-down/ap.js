@@ -36,18 +36,25 @@ function firstLastRemove() {
   let last = ulList.lastElementChild;
   let up = first.querySelector(".up");
   let down = last.querySelector(".down");
+  if (up) {
   first.removeChild(up);
+}
+if (down) {
   last.removeChild(down);
+}
 }
 
 function firstLastBGColor() {
   let first = ulList.firstElementChild;
   let last = ulList.lastElementChild;
-  for (let i = 0; i < lis.length; i += 1) lis[i].style.background = "white";
-  first.style.background = "lightblue";
-  last.style.background = "lightpink";
-  ulList.firstElementChild.firstElementChild.style.background = "#508abc";
+  for (let i = 0; i < lis.length; i += 1) {
+    lis[i].style.background = "white";
+    first.style.background = "lightblue";
+    last.style.background = "lightpink";
+    ulList.firstElementChild.firstElementChild.style.background = "#508abc";
+  }
 }
+
 
 function removeButtons(element) {
   var child = element.lastElementChild;
@@ -58,11 +65,14 @@ function removeButtons(element) {
 }
 
 function removeAndAttach(func1, func2) {
-  for (i = 2; i < 6; i++) {
-    func1(arguments[i]);
-    func2(arguments[i]);
+  if (ulList.childElementCount > 1) {
+    for (i = 2; i < 6; i++) {
+      func1(arguments[i]);
+      func2(arguments[i]);
+    }
   }
 }
+
 
 // Removing all buttons (old version)
 // function resetAllButtons(li) {
