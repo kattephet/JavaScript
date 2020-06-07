@@ -49,16 +49,36 @@ function firstLastBGColor() {
   ulList.firstElementChild.firstElementChild.style.background = "#508abc";
 }
 
-function resetAllButtons(li) {
-  for (let i = 0; i < li.length; i += 1) {
-    let list = li[i];
-    var child = list.lastElementChild;
-    while (child) {
-      list.removeChild(child);
-      child = list.lastElementChild;
-    }
+function removeButtons(element) {
+  var child = element.lastElementChild;
+  while (child) {
+    element.removeChild(child);
+    child = element.lastElementChild;
   }
 }
+
+function removeAndAttach(func1, func2, arg1, arg2, arg3, arg4) {
+  func1(arg1);
+  func1(arg2);
+  func1(arg3);
+  func1(arg4);
+  func2(arg1);
+  func2(arg2);
+  func2(arg3);
+  func2(arg4);
+}
+
+// Removing all buttons (old version)
+// function resetAllButtons(li) {
+//   for (let i = 0; i < li.length; i += 1) {
+//     let list = li[i];
+//     var child = list.lastElementChild;
+//     while (child) {
+//       list.removeChild(child);
+//       child = list.lastElementChild;
+//     }
+//   }
+// }
 
 for (let i = 0; i < lis.length; i += 1) {
   attachListItemButtons(lis[i]);
@@ -68,10 +88,11 @@ firstLastRemove();
 firstLastBGColor();
 
 list.addEventListener("click", (event) => {
-  resetAllButtons(lis);
-  for (let i = 0; i < lis.length; i += 1) {
-    attachListItemButtons(lis[i]);
-  }
+  let first = ulList.firstElementChild;
+  let second = ulList.firstElementChild.nextElementSibling;
+  let penultimate = ulList.lastElementChild.previousElementSibling;
+  let last = ulList.lastElementChild;
+  removeAndAttach(removeButtons, attachListItemButtons, first, second, penultimate, last);
   firstLastRemove();
   firstLastBGColor();
 });
