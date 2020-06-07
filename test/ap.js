@@ -1,5 +1,5 @@
-var liczby = [1, 5, 10, 15];
-var nazwaArray = liczby.map(dowolnaNazwa => dowolnaNazwa *2);
+function getRandomIntInclusive(min, max) {
+  return Math.ceil(Math.random() * (max - min)) + min;
+}
 
-console.log(liczby);
-console.log(nazwaArray);
+console.log(getRandomIntInclusive(1, 10));
