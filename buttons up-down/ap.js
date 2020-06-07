@@ -57,15 +57,11 @@ function removeButtons(element) {
   }
 }
 
-function removeAndAttach(func1, func2, arg1, arg2, arg3, arg4) {
-  func1(arg1);
-  func1(arg2);
-  func1(arg3);
-  func1(arg4);
-  func2(arg1);
-  func2(arg2);
-  func2(arg3);
-  func2(arg4);
+function removeAndAttach(func1, func2) {
+  for (i = 2; i < 6; i++) {
+    func1(arguments[i]);
+    func2(arguments[i]);
+  }
 }
 
 // Removing all buttons (old version)
