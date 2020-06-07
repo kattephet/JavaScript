@@ -92,7 +92,14 @@ list.addEventListener("click", (event) => {
   let second = ulList.firstElementChild.nextElementSibling;
   let penultimate = ulList.lastElementChild.previousElementSibling;
   let last = ulList.lastElementChild;
-  removeAndAttach(removeButtons, attachListItemButtons, first, second, penultimate, last);
+  removeAndAttach(
+    removeButtons,
+    attachListItemButtons,
+    first,
+    second,
+    penultimate,
+    last
+  );
   firstLastRemove();
   firstLastBGColor();
 });
