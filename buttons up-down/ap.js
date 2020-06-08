@@ -15,35 +15,25 @@ const firstPosition = ulList.firstElementChild;
 const lastPosition = ulList.lastElementChild;
 
 function attachListItemButtons(li) {
-  let up = document.createElement("button");
-  up.className = "up";
-  up.textContent = "Up";
-  li.appendChild(up);
-
-  let down = document.createElement("button");
-  down.className = "down";
-  down.textContent = "Down";
-  li.appendChild(down);
-
-  let remove = document.createElement("button");
-  remove.className = "remove";
-  remove.textContent = "Remove";
-  li.appendChild(remove);
-}
-
-function firstLastRemove() {
-  let first = ulList.firstElementChild;
-  let last = ulList.lastElementChild;
-  let up = first.querySelector(".up");
-  let down = last.querySelector(".down");
-  if (up) {
-    first.removeChild(up);
-  }
-  if (down) {
-    last.removeChild(down);
+  if (li !== null) {
+    if (li !== ulList.firstElementChild) {
+      let up = document.createElement("button");
+      up.className = "up";
+      up.textContent = "Up";
+      li.appendChild(up);
+    }
+    if (li !== ulList.lastElementChild) {
+      let down = document.createElement("button");
+      down.className = "down";
+      down.textContent = "Down";
+      li.appendChild(down);
+    }
+    let remove = document.createElement("button");
+    remove.className = "remove";
+    remove.textContent = "Remove";
+    li.appendChild(remove);
   }
 }
-
 
 function firstLastBGColor() {
   let first = ulList.firstElementChild;
@@ -56,42 +46,27 @@ function firstLastBGColor() {
   }
 }
 
-
 function removeButtons(element) {
-  var child = element.lastElementChild;
-  while (child) {
-    element.removeChild(child);
-    child = element.lastElementChild;
-  }
-}
-
-function removeAndAttach(func1, func2) {
-  if (ulList.childElementCount > 1) {
-    for (i = 2; i < 6; i++) {
-      func1(arguments[i]);
-      func2(arguments[i]);
+  if (element !== null) {
+    var child = element.lastElementChild;
+    while (child) {
+      element.removeChild(child);
+      child = element.lastElementChild;
     }
   }
 }
 
-
-// Removing all buttons (old version)
-// function resetAllButtons(li) {
-//   for (let i = 0; i < li.length; i += 1) {
-//     let list = li[i];
-//     var child = list.lastElementChild;
-//     while (child) {
-//       list.removeChild(child);
-//       child = list.lastElementChild;
-//     }
-//   }
-// }
+function removeAndAttach(func1, func2) {
+  for (i = 2; i < 6; i++) {
+    func1(arguments[i]);
+    func2(arguments[i]);
+  }
+}
 
 for (let i = 0; i < lis.length; i += 1) {
   attachListItemButtons(lis[i]);
 }
 
-firstLastRemove();
 firstLastBGColor();
 
 list.addEventListener("click", (event) => {
@@ -107,7 +82,6 @@ list.addEventListener("click", (event) => {
     penultimate,
     last
   );
-  firstLastRemove();
   firstLastBGColor();
 });
 
@@ -160,3 +134,31 @@ addItemButton.addEventListener("click", () => {
   ul.appendChild(li);
   addItemInput.value = "";
 });
+
+// Old version
+
+// Removing all buttons (old version)
+// function resetAllButtons(li) {
+//   for (let i = 0; i < li.length; i += 1) {
+//     let list = li[i];
+//     var child = list.lastElementChild;
+//     while (child) {
+//       list.removeChild(child);
+//       child = list.lastElementChild;
+//     }
+//   }
+// }
+//
+//Old version remoing first/last buttons
+// function firstLastRemove() {
+//   let first = ulList.firstElementChild;
+//   let last = ulList.lastElementChild;
+//   let up = first.querySelector(".up");
+//   let down = last.querySelector(".down");
+//   if (up) {
+//     first.removeChild(up);
+//   }
+//   if (down) {
+//     last.removeChild(down);
+//   }
+// }
